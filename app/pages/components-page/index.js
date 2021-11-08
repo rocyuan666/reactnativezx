@@ -1,6 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {PureComponent, useState} from 'react';
-import {ScrollView, View, Text, Image, TextInput, Button} from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  TextInput,
+  Button,
+  Switch,
+} from 'react-native';
 
 function ViewCpn() {
   return (
@@ -115,6 +123,30 @@ function ButtonCpn() {
     </>
   );
 }
+
+function SwitchCpn() {
+  const [isEnabled, setIsEnabled] = useState(true);
+  return (
+    <>
+      <Text>Switch</Text>
+      {/*
+        trackColor 打开关闭的颜色
+        thumbColor 圆点的颜色，在iOS上设置此颜色会丢失按钮的投影
+        onValueChange 值改变的回调 参数是新的值
+        value 开关的值
+      */}
+      <View style={{alignItems: 'flex-start'}}>
+        <Switch
+          trackColor={{false: '#f00', true: '#0f0'}}
+          thumbColor={isEnabled ? '#f99' : '#00f'}
+          onValueChange={() => setIsEnabled(!isEnabled)}
+          value={isEnabled}
+        />
+      </View>
+    </>
+  );
+}
+
 export default class ComponentsPage extends PureComponent {
   render() {
     return (
@@ -124,6 +156,7 @@ export default class ComponentsPage extends PureComponent {
         <ImageCpn />
         <TextInputCpn />
         <ButtonCpn />
+        <SwitchCpn />
       </ScrollView>
     );
   }
