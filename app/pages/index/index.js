@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {View, Button, StyleSheet} from 'react-native';
+import {View, Button} from 'react-native';
 
 export default class Index extends PureComponent {
   toComponentsPage() {
